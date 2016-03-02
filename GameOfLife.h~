@@ -52,7 +52,7 @@ class GameOfLife : public QThread
     void spaceship2 ( bool **lattice, int x, int y);
     void what ( bool **lattice, int x, int y);
     void schickengine ( bool **lattice, int x, int y);
-    void schickengine2 ( bool **lattice, int x, int y);
+
     bool **predictions;
     void learning();
     

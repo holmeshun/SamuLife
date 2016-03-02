@@ -63,13 +63,103 @@ GameOfLife::GameOfLife ( int w, int h ) : m_w ( w ), m_h ( h )
       {
         lattice[i][j] = false;
       }
+      schickengine(lattice,25,10);
+      //schickengine2(lattice,10,10)
+      spaceship(lattice,15,25);
+      /*spaceship2(lattice,10, 25);
+      spaceship2(lattice,20, 25);*/
 
-  glider ( lattice, 2*m_w/5, 2*m_h/5 );
-  glider ( lattice, 3*m_w/5, 3*m_h/5 );
-  glider ( lattice, 4*m_w/5, 4*m_h/5 );
-  glider ( lattice, 4*m_w/5, 2*m_h/5 );
-  glider ( lattice, 2*m_w/5, 4*m_h/5 );
+}
 
+void GameOfLife::spaceship ( bool **lattice, int x,int y)
+{
+  lattice[y + 5][x + 4] = true;
+  lattice[y + 5][x + 5] = true;
+  lattice[y + 4][x + 6] = true;
+  lattice[y + 6][x + 6] = true;
+  lattice[y + 5][x + 7] = true;
+  lattice[y + 5][x + 8] = true;
+  lattice[y + 5][x + 9] = true;
+  lattice[y + 5][x + 10] = true;
+  lattice[y + 5][x + 12] = true;
+  lattice[y + 5][x + 13] = true;
+  lattice[y + 4][x + 11] = true;
+  lattice[y + 6][x + 11] = true;
+}
+void GameOfLife::spaceship2 ( bool **lattice, int x,int y)
+{
+  lattice[y + 1][x + 1] = true;
+  lattice[y + 1][x + 2] = true;
+  lattice[y + 2][x + 1] = true;
+  lattice[y + 3][x + 4] = true;
+  lattice[y + 4][x + 4] = true;
+  lattice[y + 4][x + 3] = true;
+}
+void GameOfLife::what ( bool **lattice, int x,int y)
+{
+  lattice[y + 1][x + 1] = true;
+  lattice[y + 1][x + 2] = true;
+  lattice[y + 1][x + 3] = true;
+  lattice[y + 3][x + 2] = true;
+  lattice[y + 5][x + 1] = true;
+  lattice[y + 5][x + 2] = true;
+  lattice[y + 5][x + 3] = true;
+}
+void GameOfLife::schickengine ( bool **lattice, int x,int y)
+{
+  lattice[y + 1][x + 1] = true;
+  lattice[y + 1][x + 2] = true;
+  lattice[y + 1][x + 3] = true;
+  lattice[y + 1][x + 4] = true;
+  lattice[y + 2][x + 1] = true;
+  lattice[y + 3][x + 1] = true;
+  lattice[y + 3][x + 1] = true;
+  lattice[y + 2][x + 5] = true;
+  lattice[y + 4][x + 2] = true;
+  lattice[y + 6][x + 2] = true;
+  lattice[y + 5][x + 5] = true;
+  lattice[y + 7][x + 1] = true;
+  lattice[y + 8][x + 1] = true;
+  lattice[y + 9][x + 1] = true;
+  lattice[y + 9][x + 2] = true;
+  lattice[y + 9][x + 3] = true;
+  lattice[y + 9][x + 4] = true;
+  lattice[y + 8][x + 5] = true;
+
+  lattice[y + 6][x + 7] = true;
+  lattice[y + 4][x + 8] = true;
+  lattice[y + 5][x + 8] = true;
+  lattice[y + 6][x + 8] = true;
+  lattice[y + 4][x + 9] = true;
+  lattice[y + 5][x + 9] = true;
+  lattice[y + 6][x + 9] = true;
+  lattice[y + 8][x + 5] = true;
+  lattice[y + 8][x + 5] = true;
+  lattice[y + 8][x + 5] = true;
+  
+}
+void GameOfLife::schickengine2 ( bool **lattice, int x,int y)
+{
+  lattice[y + 3][x + 1] = true;
+  lattice[y + 7][x + 1] = true;
+
+  lattice[y + 3][x + 2] = true;
+  lattice[y + 7][x + 2] = true;
+
+  lattice[y + 2][x + 3] = true;
+  lattice[y + 4][x + 3] = true;
+  lattice[y + 6][x + 3] = true;
+  lattice[y + 8][x + 3] = true;
+
+  lattice[y + 4][x + 4] = true;
+  lattice[y + 5][x + 4] = true;
+  lattice[y + 6][x + 4] = true;
+
+  lattice[y + 4][x + 5] = true;
+  lattice[y + 5][x + 5] = true;
+  lattice[y + 6][x + 5] = true;
+
+  lattice[y + 5][x + 6] = true;
 }
 
 bool ** GameOfLife::lattice()

@@ -1,3 +1,6 @@
+#ifndef SamuLife_H
+#define SamuLife_H
+
 /**
  * @brief Samu has learnt the rules of Conway's Game of Life
  *
@@ -28,13 +31,30 @@
  * an example of the paper entitled "Samu in his prenatal development".
  */
 
-#include <QApplication>
-#include "SamuLife.h"
+#include <QKeyEvent>
+#include <QMainWindow>
+#include <QPainter>
+#include <QFont>
+#include "GameOfLife.h"
 
-int main ( int argc, char** argv )
+class SamuLife : public QMainWindow
 {
-  QApplication app ( argc, argv );
-  SamuLife samulife(40, 40);
-  samulife.show();
-  return app.exec();
-}
+    Q_OBJECT
+
+    int m_cw {23*2}, m_ch {20*2};
+    GameOfLife *gameOfLife;
+    bool **lattice {nullptr};
+    bool **prediction {nullptr};
+
+public slots :
+    void updateCells ( bool **, bool ** );
+
+public:
+    SamuLife ( int w = 30, int h = 20, QWidget *parent = 0 );
+    virtual ~SamuLife();
+    void paintEvent ( QPaintEvent* );
+    void keyPressEvent( QKeyEvent * event );
+
+};
+
+#endif // SamuLife_H
